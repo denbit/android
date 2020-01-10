@@ -1,4 +1,4 @@
-package calcualator.first;
+package calculator.first;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 enum Operator{First,Second}
+
 public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
     private StringBuffer operand2;
@@ -27,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
         operand2 = new StringBuffer();
         operations = new StringBuffer();
     }
-    public void enterDigit(View view){
+
+    public void enterDigit(@org.jetbrains.annotations.NotNull View view){
         Button   btnview = (Button) view;
          Resources res =  btnview.getResources();
          String elName =  res.getResourceEntryName(view.getId());
         char digit = btnview.getText().charAt(0);
-        Log.d(TAG, "enterDigit: ".concat(elName).concat("  "+Character.toString(digit)));
+        Log.d(TAG, "enterDigit: ".concat(elName).concat( "  " + Character.toString(digit)));
         showValue(String.valueOf(btnview.getText()));
         if (selector == Operator.First){
             operand1.append(btnview.getText());
